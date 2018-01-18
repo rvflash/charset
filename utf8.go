@@ -9,13 +9,13 @@ import (
 	"unicode/utf8"
 )
 
-// Utf8 returns a string with a maximum of three bytes per character.
-func Utf8(in string) string {
+// FormatUtf8 returns a string with a maximum of three bytes per character.
+func FormatUtf8(in string) string {
 	return stripBytes(in, 3)
 }
 
-// Utf8mb4 returns a string with a maximum of four bytes per character.
-func Utf8mb4(in string) string {
+// FormatUtf8mb4 returns a string with a maximum of four bytes per character.
+func FormatUtf8mb4(in string) string {
 	return stripBytes(in, 4)
 }
 
