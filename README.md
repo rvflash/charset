@@ -10,10 +10,10 @@ Golang package to limit the number of bytes per character in a string.
 
 ### Why?
 
-Because, MySQL as multiple unicode support and behing the utf8 character set, it uses a maximum of three bytes per character.
+Because MySQL has multiple unicode support and behind the utf8 character set, it uses a maximum of three bytes per character.
 This charset contains only BMP characters.
-An other named utf8mb4 uses a maximum of four bytes per character and supports supplementary characters.
-This packade provides method to limit the number of bytes per character in a utf8 string.
+An other, named utf8mb4 uses a maximum of four bytes per character and supports supplementary characters.
+This package provides method to limit the number of bytes per character in a utf8 string.
 
 > https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-utf8mb4.html
 
