@@ -5,12 +5,19 @@
 package charset_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/rvflash/charset"
 )
 
-func TestUtf8(t *testing.T) {
+func ExampleFormatUtf8() {
+	s := charset.FormatUtf8("Warning: ⚠ 1 minute left ⌚ before boom 💥 ➡ click on the button !")
+	fmt.Println(s)
+	// Output: Warning: ⚠ 1 minute left ⌚ before boom  ➡ click on the button !
+}
+
+func TestFormatUtf8(t *testing.T) {
 	var dt = []struct {
 		in, out string
 	}{
@@ -28,13 +35,13 @@ func TestUtf8(t *testing.T) {
 		},
 	}
 	for i, tt := range dt {
-		if out := charset.Utf8(tt.in); out != tt.out {
+		if out := charset.FormatUtf8(tt.in); out != tt.out {
 			t.Errorf("%d. error mismatch: got=%q, exp=%q", i, out, tt.out)
 		}
 	}
 }
 
-func TestUtf8mb4(t *testing.T) {
+func TestFormatUtf8mb4(t *testing.T) {
 	var dt = []struct {
 		in, out string
 	}{
@@ -52,7 +59,7 @@ func TestUtf8mb4(t *testing.T) {
 		},
 	}
 	for i, tt := range dt {
-		if out := charset.Utf8mb4(tt.in); out != tt.out {
+		if out := charset.FormatUtf8mb4(tt.in); out != tt.out {
 			t.Errorf("%d. error mismatch: got=%q, exp=%q", i, out, tt.out)
 		}
 	}
